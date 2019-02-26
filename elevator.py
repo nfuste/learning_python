@@ -1,5 +1,7 @@
 import time
 
+items = [] 
+
 def print_pause(message_to_print):
     print(message_to_print)
     time.sleep(2)
@@ -21,6 +23,8 @@ def valid_imput(prompt, option1, option2, option3):
             print_pause("Sorry, I don't understand")
     return response
 
+
+
 def select_floor():
     floor_selection = valid_imput("Please enter the number for the floor you would like to visit:\n"
                                     "1. Lobby\n"
@@ -30,6 +34,14 @@ def select_floor():
     if "1" in floor_selection:
         print_pause("You push the button for the first floor.")
         print_pause("After a few moments, you find yourself in the lobby")
+
+        if "ID card" in items:
+            print_pause("The clerk greets you, but she has already given you your"
+                        "ID card, so there is nothing more to do here now.")
+        else:
+            items.append("ID card")
+            print_pause("The clerk greets you and gives you your ID card.")
+
     elif "2" in floor_selection:
         print_pause("You push the button for the second floor.")
         print_pause("After a few moments, you find yourself in the human resources department")
