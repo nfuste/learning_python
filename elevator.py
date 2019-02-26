@@ -71,13 +71,35 @@ def select_floor():
             
             # Otherwise, they should be told they first need the ID card
             else:
-                print_pause("He has something for you, but says he can't  give it to you until you go get your ID card.")
+                print_pause("He has something for you, but says he can't give it to you until you go get your ID card.")
 
     
     # This happens if the user selects the third floor
     elif "3" in floor_selection:
         print_pause("You push the button for the third floor.")
         print_pause("After a few moments, you find yourself in the engineering department")
+    
+        #If the player has the ID card, they should be able to open the door
+        if "ID card" in items:
+            print_pause("You use your ID card to open the door.")
+            print_pause("Your program manager greets you and tells you that you need to have a copy of")
+            print_pause("the employee handbook in order to start work.")
+
+            # If the player did have the ID card and they also have the handbook, they should win the game
+            if "Handbook" in items:
+                print_pause("Fortunately, you got that from HR!")
+                print_pause("Congratulatons! You are ready to start your new job as vice president of engineering!")
+                break
+
+            else:
+                print_pause("They scowl when they see that you don't have it, and send you back to the elevator.")
+
+        # Otherwise (they don't have the ID), they should get blocked at this point
+        else:
+            print_pause("Unfortunately, the door is locked and you can't get in.")
+            print_pause("It looks like you need some kind of key card to open the door.")
+            print_pause("You head back to the elevator.")   
+
 
 # This makes the user select another floor
 def loop_select_other_floor():
