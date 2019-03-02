@@ -4,7 +4,7 @@ import random
 # Sets a pause between the messages to print
 def print_pause (text):
     print(text)
-    time.sleep(0)
+    time.sleep(2)
 
 # Checks for a valid imput. Keeps repeating until it gets one
 def valid_imput(prompt, option1, option2):
@@ -32,7 +32,8 @@ def intro (enemy, weapon):
     print_pause("Rumor has it that a " + enemy + " is somewhere around here, and has been terrifying the nearby village.")
     print_pause("In front of you is a house.")
     print_pause("To your right is a dark cave.")
-    print_pause("In your hand you hold your trusty (but not very effective) " + weapon + " .")
+    print_pause("In your hand you hold your trusty (but not very effective) " + weapon + ".")
+    print_pause("\n")
 
 # Player must choose between the house and the cave
 def where_to_go (items, enemy, weapon):
@@ -54,9 +55,13 @@ def house (items, enemy, weapon):
     print_pause("You are about to knock when the door opens and out steps a " + enemy + ".")
     print_pause("Eep! This is the " + enemy + "'s house!")
     print_pause("The "+ enemy + " attacks you!")
-    print_pause("You feel a bit under-prepared for this, whith only having a tiny " + weapon)
 
-    choice2 = valid_imput("Would you like to (1) fight or (2) run away?\n","1","2")
+    if "cool_weapon" in items:
+        choice2 = valid_imput("Would you like to (1) fight or (2) run away?\n","1","2")
+
+    else:
+        print_pause("You feel a bit under-prepared for this, whith only having a tiny " + weapon
+        choice2 = valid_imput("Would you like to (1) fight or (2) run away?\n","1","2")
     
     if "1" in choice2:
         if "cool_weapon" in items:
@@ -76,6 +81,7 @@ def cave (items, enemy, weapon):
         print_pause("You peer cautiously into the cave.")
         print_pause("You've been here before, and gotten all the good stuff. It's just an empty cave now.")
         print_pause("You walk back out to the field.")
+        print_pause("\n")
 
         field(items, enemy, weapon)
 
@@ -83,9 +89,11 @@ def cave (items, enemy, weapon):
         print_pause("You peer cautiously into the cave.")
         print_pause("It turns out to be only a very samll cave.")
         print_pause("Your eye catches a glint of methal behind a rock.")
-        print_pause("You have found the magical Sword of Ogoroth.")
+        print_pause("You have found the magical Sword of Ogoroth!")
         print_pause("You discard your silly " + weapon + " and take the sword with you.")
         print_pause("You walk back out to the field.")
+        print_pause("\n")
+
 
         items.append("cool_weapon")
         field(items, enemy, weapon)
