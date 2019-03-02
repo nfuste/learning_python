@@ -99,7 +99,7 @@ def cave(items, enemy, weapon):
 
     else:
         print_pause("You peer cautiously into the cave.")
-        print_pause("It turns out to be only a very samll cave.")
+        print_pause("It turns out to be only a very small cave.")
         print_pause("Your eye catches a glint of methal behind a rock.")
         print_pause("You have found the magical Sword of Ogoroth!")
         print_pause("You discard your silly " + weapon + " and take the sword "
