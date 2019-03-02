@@ -22,7 +22,7 @@ def valid_imput(prompt, option1, option2):
 def play_game():
     items =[]
     enemy = random.choice(["pirate", "dragon", "zombie", "vampire"])
-    weapon = random.choice(["gun", "dagger", "sword"])
+    weapon = random.choice(["gun", "dagger", "katana", "bow"])
     intro(enemy, weapon)
     where_to_go(items, enemy, weapon)
 
@@ -45,7 +45,7 @@ def where_to_go (items, enemy, weapon):
         house(items, enemy, weapon)
 
     if "2" in choice:
-        cave(items, weapon)
+        cave(items, enemy, weapon)
 
 # Things that happen to the player in the house
 def house (items, enemy, weapon):
@@ -67,7 +67,7 @@ def house (items, enemy, weapon):
     if "2" in choice2:
         print_pause("You run back into the field. Luckily, you don't seem to have been followed")
 
-        field()
+        field(items, enemy, weapon)
 
 
 # Things that happen to the player in the cave
