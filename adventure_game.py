@@ -4,7 +4,7 @@ import random
 # Sets a pause between the messages to print
 def print_pause (text):
     print(text)
-    time.sleep(2)
+    time.sleep(0)
 
 # Checks for a valid imput. Keeps repeating until it gets one
 def valid_imput(prompt, option1, option2):
@@ -60,9 +60,9 @@ def house (items, enemy, weapon):
     
     if "1" in choice2:
         if "cool_weapon" in items:
-            win()
+            win(enemy)
         else:
-            loose()
+            loose(enemy, weapon)
     
     if "2" in choice2:
         print_pause("You run back into the field. Luckily, you don't seem to have been followed")
@@ -88,22 +88,22 @@ def cave (items, enemy, weapon):
         print_pause("You walk back out to the field.")
 
         items.append("cool_weapon")
-        field()
+        field(items, enemy, weapon)
 # Things that happen to the player in the field
 def field(items, enemy, weapon):
     where_to_go(items, enemy, weapon)
 
 # This happens if the user wins
-def win ():
+def win (enemy):
     print_pause("As the " + enemy + " moves to atack, you unsheath your new sword")
     print_pause("The Sword of Ogoroth shines brightly in your hand as you brace yourself for the attack")
     print_pause("But the " + enemy + " takes one look at your shiny new toy and runs away!")
-    print_pause("You have rid the town of the " + ememy + ". You are victorious!")
+    print_pause("You have rid the town of the " + enemy + ". You are victorious!")
 
     play_again()
 
 # This happens if the user looses
-def loose ():
+def loose (enemy, weapon):
     print_pause("You do your best...")
     print_pause("but your " + weapon + " is no match for the " + enemy)
     print_pause("You have been defeated!")
