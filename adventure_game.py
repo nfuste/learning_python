@@ -12,9 +12,9 @@ def print_pause(text):
 def valid_imput(prompt, option1, option2):
     while True:
         response = input(prompt).lower()
-        if option1 in response:
+        if response == option1:
             break
-        elif option2 in response:
+        elif response == option2:
             break
         else:
             print_pause("Sorry, I don't understand")
